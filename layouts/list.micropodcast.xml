@@ -1,0 +1,37 @@
+<rss version="2.0">
+  <channel>
+    <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description></description>
+	<itunes:image href="https://micro.blog/{{ .Site.Author.username }}/podcast.png" />
+	<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
+		<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
+	</itunes:category>
+	<itunes:author>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:author>
+	<itunes:explicit>no</itunes:explicit>		
+	<itunes:owner>
+		<itunes:name>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:name>
+		<itunes:email>{{ .Site.Params.itunes_email | htmlEscape }}</itunes:email>
+	</itunes:owner>
+    {{ with .Site.LanguageCode }}
+    <language>{{.}}</language>
+    {{ end }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+	{{- $list := where .Pages ".Params.audio" "!=" nil -}}
+    {{ range $list }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      <description>{{ .Content | html }}</description>
+      <itunes:subtitle>{{ .Content | html }}</itunes:subtitle>
+      <itunes:summary>{{ .Content | html }}</itunes:summary>
+		{{ range first 1 .Params.audio }}
+			<enclosure url="{{ . }}" type="audio/mpeg"></enclosure>
+		{{ end }}
+    </item>
+    {{ end }}
+  </channel>
+</rss>
