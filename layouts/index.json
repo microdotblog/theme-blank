@@ -10,8 +10,14 @@
 		{{ range $index, $value := $list }}
 			{
 				"id": "{{ .Permalink }}",
+				{{ if .Title -}}
 				"title": {{ .Title | jsonify }},
-				"content_html": {{ .Content | jsonify }},
+				{{- end -}}
+				{{- $s := .Content | jsonify -}}
+				{{- $s := replace $s "\\u003c" "<" -}}
+				{{- $s := replace $s "\\u003e" ">" -}}
+				{{- $s := replace $s "\\u0026" "&" }}
+				"content_html": {{ $s }},
 				"date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
 				"url": "{{ .Permalink }}"
 			}
