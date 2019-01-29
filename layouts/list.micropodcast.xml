@@ -1,8 +1,8 @@
-<rss version="2.0">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description></description>
+    <description>{{ .Site.Params.itunes_description }}</description>
 	<itunes:image href="https://micro.blog/{{ .Site.Author.username }}/podcast.png" />
 	<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
 		<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
