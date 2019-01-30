@@ -9,7 +9,11 @@
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
+				{{ if .Params.guid -}}
+				"id": "{{ .Params.guid }}",
+				{{- else -}}
 				"id": "{{ .Permalink }}",
+				{{- end }}
 				{{ if .Title -}}
 				"title": {{ .Title | jsonify }},
 				{{- end -}}
