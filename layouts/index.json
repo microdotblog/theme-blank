@@ -20,6 +20,10 @@
 				"content_html": {{ $s }},
 				"date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
 				"url": "{{ .Permalink }}"
+				{{- with .Params.categories -}}
+				,
+				"tags": {{ . | jsonify }}
+				{{- end }}
 			}
 			{{- if ne (add $index 1) $len -}},{{- end -}}
 		{{ end }}
