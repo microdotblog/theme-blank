@@ -1,2 +1,64 @@
 {
+    "title": "[TITLE]",
+    "author": {
+    	"name": "[TITLE]",
+    	"avatar": "https://micro.blog/[USERNAME]/avatar.jpg",
+    	"username": "[USERNAME]"
+    },
+    "baseURL": "[SCHEME]://[HOSTNAME]/",
+	"outputFormats": {
+		"RSS": {
+			"baseName": "feed"
+		},
+		"JSON": {
+			"baseName": "feed"
+		},
+		"ArchiveHTML": {
+			"mediaType": "text/html",
+			"path": "archive",
+			"baseName": "index",
+			"isPlainText": false,
+			"notAlternative": true
+		},
+		"ArchiveJSON": {
+			"mediaType": "application/json",
+			"path": "archive",
+			"baseName": "index",
+			"isPlainText": true,
+			"notAlternative": true
+		},
+		"PhotosJSON": {
+			"mediaType": "application/json",
+			"path": "photos",
+			"baseName": "index",
+			"isPlainText": true,
+			"notAlternative": true
+		},
+		"PodcastXML": {
+			"mediaType": "application/rss+xml",
+			"baseName": "podcast",
+			"isPlainText": true,
+			"notAlternative": true
+		}
+	},
+	"outputs": {
+		"home": [ "HTML", "RSS", "JSON", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
+		"section": [ "HTML" ]
+	},
+	"taxonomies": {
+		"category": "categories"
+	},	
+	"rssLimit": 25,
+	"uglyURLs": false,
+	"params": {
+		"description": "Follow <a href=\"https://micro.blog/[USERNAME]\">@[USERNAME] on Micro.blog</a>.",
+		"itunes_description": "[ITUNES_DESCRIPTION]",
+		"itunes_category": "[ITUNES_CATEGORY]",
+		"itunes_subcategory": "[ITUNES_SUBCATEGORY]",
+		"itunes_author": "[ITUNES_AUTHOR]",
+		"itunes_email": "[ITUNES_EMAIL]",
+		"twitter_username": "[TWITTER_USERNAME]",
+		"github_username": "[GITHUB_USERNAME]",
+		"instagram_username": "[INSTAGRAM_USERNAME]"
+	}
 }
