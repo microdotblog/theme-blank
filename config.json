@@ -13,6 +13,12 @@
 		"JSON": {
 			"baseName": "feed"
 		},
+		"RSD": {
+			"mediaType": "application/xml",
+			"baseName": "rsd",
+			"isPlainText": true,
+			"notAlternative": true
+		},
 		"ArchiveHTML": {
 			"mediaType": "text/html",
 			"path": "archive",
@@ -42,7 +48,7 @@
 		}
 	},
 	"outputs": {
-		"home": [ "HTML", "RSS", "JSON", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
+		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
 		"section": [ "HTML" ]
 	},
 	"taxonomies": {
@@ -50,6 +56,10 @@
 	},	
 	"rssLimit": 25,
 	"uglyURLs": false,
+	"blackfriday": {
+		"fractions": false
+	},
+	"languageCode": "[LANGUAGE]",
 	"params": {
 		"description": "Follow <a href=\"https://micro.blog/[USERNAME]\">@[USERNAME] on Micro.blog</a>.",
 		"itunes_description": "[ITUNES_DESCRIPTION]",
@@ -59,6 +69,7 @@
 		"itunes_email": "[ITUNES_EMAIL]",
 		"twitter_username": "[TWITTER_USERNAME]",
 		"github_username": "[GITHUB_USERNAME]",
-		"instagram_username": "[INSTAGRAM_USERNAME]"
+		"instagram_username": "[INSTAGRAM_USERNAME]",
+		"site_id": "[SITE_ID]"
 	}
 }
