@@ -33,6 +33,13 @@
 			"isPlainText": true,
 			"notAlternative": true
 		},
+		"PhotosHTML": {
+			"mediaType": "text/html",
+			"path": "photos",
+			"baseName": "index",
+			"isPlainText": false,
+			"notAlternative": true
+		},
 		"PhotosJSON": {
 			"mediaType": "application/json",
 			"path": "photos",

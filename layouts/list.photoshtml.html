@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+	<div class="photos-grid-container" style="display: grid; grid-column-gap: 15px; grid-row-gap: 15px; grid-template-columns: 33% 33% 33%;">
+
+	{{- $list := where .Pages ".Params.images" "!=" nil -}}
+	{{- $len := (len $list) -}}
+	{{ range $index, $value := $list }}
+		<a href="{{ .Permalink }}">
+			{{ range first 1 .Params.images }}
+				<img src="https://photos.micro.blog/400/{{ . }}" width="300" height="300" style="border-radius: 5px;" class="photos-grid-item" />
+			{{ end }}
+		</a>
+	{{ end }}
+
+	</div>
+
+{{ end }}
