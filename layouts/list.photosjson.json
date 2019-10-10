@@ -5,7 +5,7 @@
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"feed_url": "{{ .Site.BaseURL }}photos/index.json",
 	"items": [
-		{{- $list := where .Pages ".Params.images" "!=" nil -}}
+		{{- $list := where .Pages ".Params.photos" "!=" nil -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
@@ -18,7 +18,7 @@
 				"content_html": {{ $s }},
 				"date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
 				"url": "{{ .Permalink }}",
-				{{ range first 1 .Params.images }}
+				{{ range first 1 .Params.photos }}
 					"image": "{{ . }}",
 					"_microblog": {
 						"thumbnail_url": "https://photos.micro.blog/400/{{ . }}"

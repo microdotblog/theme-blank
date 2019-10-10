@@ -56,7 +56,10 @@
 	},
 	"outputs": {
 		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
-		"section": [ "HTML" ]
+		"page": [ "HTML" ],
+		"section": [ "HTML" ],
+		"taxonomy": [ "HTML" ],
+		"taxonomyTerm": [ "HTML", "RSS", "JSON" ]
 	},
 	"taxonomies": {
 		"category": "categories"
@@ -66,7 +69,9 @@
 	"blackfriday": {
 		"fractions": false
 	},
+	"enableRobotsTXT": true,
 	"languageCode": "[LANGUAGE]",
+	"paginate": 25,
 	"params": {
 		"description": "Follow <a href=\"https://micro.blog/[USERNAME]\">@[USERNAME] on Micro.blog</a>.",
 		"itunes_description": "[ITUNES_DESCRIPTION]",
@@ -77,6 +82,7 @@
 		"twitter_username": "[TWITTER_USERNAME]",
 		"github_username": "[GITHUB_USERNAME]",
 		"instagram_username": "[INSTAGRAM_USERNAME]",
-		"site_id": "[SITE_ID]"
+		"site_id": "[SITE_ID]",
+		"enable_pagination": false
 	}
 }
