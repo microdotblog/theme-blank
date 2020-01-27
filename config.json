@@ -58,7 +58,7 @@
 		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
 		"page": [ "HTML" ],
 		"section": [ "HTML" ],
-		"taxonomy": [ "HTML" ],
+		"taxonomy": [ "HTML", "RSS", "JSON" ],
 		"taxonomyTerm": [ "HTML", "RSS", "JSON" ]
 	},
 	"taxonomies": {
@@ -83,6 +83,8 @@
 		"github_username": "[GITHUB_USERNAME]",
 		"instagram_username": "[INSTAGRAM_USERNAME]",
 		"site_id": "[SITE_ID]",
-		"enable_pagination": false
+		"paginate_home": false,
+		"paginate_categories": false,
+		"paginate_replies": false
 	}
 }
