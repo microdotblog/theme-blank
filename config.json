@@ -79,6 +79,7 @@
 		"itunes_subcategory": "[ITUNES_SUBCATEGORY]",
 		"itunes_author": "[ITUNES_AUTHOR]",
 		"itunes_email": "[ITUNES_EMAIL]",
+		"itunes_cover": "[ITUNES_COVER]",
 		"twitter_username": "[TWITTER_USERNAME]",
 		"github_username": "[GITHUB_USERNAME]",
 		"instagram_username": "[INSTAGRAM_USERNAME]",
