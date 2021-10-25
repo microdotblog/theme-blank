@@ -1,11 +1,16 @@
 {
     "title": "[TITLE]",
     "author": {
-    	"name": "[TITLE]",
+    	"name": "[FULL_NAME]",
     	"avatar": "https://micro.blog/[USERNAME]/avatar.jpg",
     	"username": "[USERNAME]"
     },
     "baseURL": "[SCHEME]://[HOSTNAME]/",
+	"mediaTypes": {
+		"application/json": {
+			"suffixes": [ "json" ]
+		}
+	},
 	"outputFormats": {
 		"RSS": {
 			"baseName": "feed"
@@ -52,10 +57,16 @@
 			"baseName": "podcast",
 			"isPlainText": true,
 			"notAlternative": true
+		},
+		"PodcastJSON": {
+			"mediaType": "application/json",
+			"baseName": "podcast",
+			"isPlainText": true,
+			"notAlternative": true
 		}
 	},
 	"outputs": {
-		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML" ],
+		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
 		"page": [ "HTML" ],
 		"section": [ "HTML" ],
 		"taxonomy": [ "HTML", "RSS", "JSON" ],
@@ -86,6 +97,10 @@
 		"site_id": "[SITE_ID]",
 		"paginate_home": false,
 		"paginate_categories": false,
-		"paginate_replies": false
+		"paginate_replies": false,
+		"theme_seconds": "0",
+		"plugins_css": [],
+		"plugins_js": [],
+		"plugins_html": []
 	}
 }

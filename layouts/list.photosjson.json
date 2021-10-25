@@ -21,7 +21,7 @@
 				{{ range first 1 .Params.photos }}
 					"image": "{{ . }}",
 					"_microblog": {
-						"thumbnail_url": "https://photos.micro.blog/400/{{ . }}"
+						"thumbnail_url": "https://micro.blog/photos/400/{{ . }}"
 					}
 				{{ end }}
 			}

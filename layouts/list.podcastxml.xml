@@ -3,6 +3,7 @@
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>{{ .Site.Params.itunes_description }}</description>
+    <copyright>Copyright {{ .Date.Format "2006" }} {{ .Site.Params.itunes_author | htmlEscape }}</copyright>
 	<itunes:image href="{{ .Site.Params.itunes_cover }}" />
 	<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
 		<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
