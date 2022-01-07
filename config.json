@@ -80,6 +80,13 @@
 	"blackfriday": {
 		"fractions": false
 	},
+	"markup": {
+		"goldmark": {
+			"renderer": {
+			  "unsafe": true
+			}
+		}
+	},
 	"enableRobotsTXT": true,
 	"languageCode": "[LANGUAGE]",
 	"paginate": 25,
