@@ -5,7 +5,7 @@
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"feed_url": "{{ .Site.BaseURL }}feed.json",
 	"items": [
-		{{- $list := first 25 (where .Pages "Type" "post") -}}
+		{{- $list := first 25 (where .Site.Pages "Type" "post") -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{

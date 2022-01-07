@@ -16,7 +16,7 @@
 		]
 	},
 	"items": [
-		{{- $list := where .Pages ".Params.audio" "!=" nil -}}
+		{{- $list := where .Site.Pages ".Params.audio" "!=" nil -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
