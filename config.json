@@ -52,7 +52,7 @@
 		}
 	},
 	"outputs": {
-		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveHTML", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
+		"home": [ "HTML", "RSS", "JSON", "RSD", "ArchiveJSON", "PhotosJSON", "PodcastXML", "PodcastJSON" ],
 		"page": [ "HTML" ],
 		"section": [ "HTML" ],
 		"taxonomy": [ "HTML", "RSS", "JSON" ],
