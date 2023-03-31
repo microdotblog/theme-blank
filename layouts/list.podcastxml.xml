@@ -18,7 +18,7 @@
     <language>{{.}}</language>
     {{ end }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
-	{{- $list := where .Site.Pages ".Params.audio" "!=" nil -}}
+	{{- $list := where .Site.Pages ".Params.audio_with_metadata" "!=" nil -}}
     {{ range $list }}
     <item>
       <title>{{ .Title | html }}</title>
@@ -29,8 +29,13 @@
       <description>{{ .Content | html }}</description>
       <itunes:subtitle>{{ .Content | html }}</itunes:subtitle>
       <itunes:summary>{{ .Content | html }}</itunes:summary>
-		{{ range first 1 .Params.audio }}
-			<enclosure url="{{ . }}" type="audio/mpeg"></enclosure>
+		{{ range first 1 .Params.audio_with_metadata }}
+      {{ if gt .size 0 }}
+			  <enclosure url="{{ .url }}" type="audio/mpeg" length="{{ .size }}"></enclosure>
+        <itunes:duration>{{ .duration_seconds }}</itunes:duration>
+      {{ else }}
+        <enclosure url="{{ .url }}" type="audio/mpeg"></enclosure>
+      {{ end }}
 		{{ end }}
     </item>
     {{ end }}
