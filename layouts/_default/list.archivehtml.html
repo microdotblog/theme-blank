@@ -14,7 +14,7 @@
 		{{ range $list }}
 	
 			<p class="h-entry">
-				<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>:
+				<a href="{{ .Permalink }}" class="u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</time></a>:
 				{{ if .Title }}
 					<span class="p-name"><b>{{ .Title }}</b></span> 
 				{{ end }}
