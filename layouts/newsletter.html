@@ -16,6 +16,14 @@
 	<p>
 	<hr>
 
+	{{ if gt (len .Intro) 0 }}
+		<p>
+		{{ .Intro }}
+	{{ end }}
+
+	<p>
+	<hr>
+
 	{{ range .Pages }}
 
 		{{ if .Title }}
