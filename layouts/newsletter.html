@@ -1,0 +1,53 @@
+<style>
+	.microblog_permalink {
+		color: gray;
+		font-style: italic;
+	}
+
+	{{ .CustomCSS }}
+</style>
+
+<div class="microblog_email">
+
+	<p class="microblog_header">
+	<img src="{{ .Site.Author.avatar }}" width="30" height="30" alt="Profile icon" style="border-radius: 15px; vertical-align: middle;">
+	<b>{{ .Site.Title }}</b>
+
+	<p>
+	<hr>
+
+	{{ range .Pages }}
+
+		{{ if .Title }}
+			<b>{{ .Title }}</b>
+		{{ end }}
+
+		<p>
+		{{ .Content }}
+
+		<br><a href="{{ .Permalink }}" class="microblog_permalink">{{ .Date.Format "2006-01-02" }}</a>
+
+		<hr>
+
+	{{ end }}
+
+	<div class="microblog_footer">
+
+		<p>
+		<a href="{{ .Footer.UnsubscribeURL }}">Unsubscribe</a> | 
+		
+		{{ if eq (len .Pages) 1 }}
+			{{ with index .Pages 0 }}
+				<a href="{{ .Permalink }}">View in browser</a> | 
+			{{ end }}
+		{{ end }}		
+		
+		<a href="{{ .Site.BaseURL }}">{{ .Site.Hostname }}</a>
+		
+		{{ if gt (len .Footer.MailingAddress) 0 }}
+			| {{ .Footer.MailingAddress }}
+		{{ end }}
+
+	</div>
+
+</div>
