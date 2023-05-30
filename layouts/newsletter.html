@@ -3,6 +3,10 @@
 		color: gray;
 		font-style: italic;
 	}
+	
+	.microblog_divider {
+		color: gray;
+	}
 
 	{{ .CustomCSS }}
 </style>
@@ -51,18 +55,18 @@
 	<div class="microblog_footer">
 
 		<p>
-		<a href="{{ .Footer.UnsubscribeURL }}">Unsubscribe</a> | 
+		<a href="{{ .Footer.UnsubscribeURL }}">Unsubscribe</a> <span class="microblog_divider">|</span> 
 		
 		{{ if eq (len .Pages) 1 }}
 			{{ with index .Pages 0 }}
-				<a href="{{ .Permalink }}">View in browser</a> | 
+				<a href="{{ .Permalink }}">View in browser</a> <span class="microblog_divider">|</span> 
 			{{ end }}
 		{{ end }}		
 		
 		<a href="{{ .Site.BaseURL }}">{{ .Site.Hostname }}</a>
 		
 		{{ if gt (len .Footer.MailingAddress) 0 }}
-			| {{ .Footer.MailingAddress }}
+			<span class="microblog_divider">|</span> {{ .Footer.MailingAddress }}
 		{{ end }}
 
 	</div>
