@@ -17,10 +17,10 @@
 	<img src="{{ .Site.Author.avatar }}" width="30" height="30" alt="Profile icon" style="border-radius: 15px; vertical-align: middle;">
 	<b>{{ .Site.Title }}</b>
 
-	<p>
-	<hr>
-
 	{{ if gt (len .Intro) 0 }}
+		<p>
+		<hr>
+
 		<p>
 		{{ .Intro }}
 	{{ end }}
