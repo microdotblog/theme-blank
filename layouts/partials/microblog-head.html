@@ -5,6 +5,7 @@
 {{ $podcastEpisodeCount := len (where .Site.Pages ".Params.audio" "!=" nil) }}
 {{ if gt $podcastEpisodeCount 0 }}
   <link rel="alternate" href="{{ "podcast.xml" | absURL }}" type="application/rss+xml" title="Podcast">
+  <link rel="alternate" href="{{ "podcast.json" | absURL }}" type="application/application/json" title="Podcast">
 {{ end }}
 
 <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}">
