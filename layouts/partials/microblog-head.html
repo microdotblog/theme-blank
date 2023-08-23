@@ -4,10 +4,10 @@
 {{ $rsslink := .OutputFormats.Get "rss" }}
 {{ if $rsslink }}
   <link href="{{ $rsslink.Permalink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="{{ "podcast.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="Podcast" />
   <link rel="alternate" type="application/json" title="{{ .Site.Title }}" href="{{ "feed.json" | absURL }}" />
-  <link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}" />
 {{ end -}}
+
+<link href="{{ "podcast.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="Podcast" />
 
 <link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
 
@@ -23,6 +23,7 @@
   <link rel="me" href="https://instagram.com/{{ . }}" />
 {{ end }}
 
+<link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}" />
 <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
 <link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
 <link rel="micropub" href="https://micro.blog/micropub" />
