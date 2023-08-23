@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
-<link rel="shortcut icon" href="https://micro.blog/{{ .Site.Author.username }}/favicon.png" type="image/x-icon">
-
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" href="%s" type="%s" title="%s">` .Rel .Permalink .MediaType.Type $.Site.Title | safeHTML }}
 {{ end -}}
@@ -24,13 +21,16 @@
   <link rel="me" href="https://instagram.com/{{ . }}">
 {{ end }}
 
+<link rel="shortcut icon" href="https://micro.blog/{{ .Site.Author.username }}/favicon.png" type="image/x-icon">
 <link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}">
 <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth">
 <link rel="token_endpoint" href="https://micro.blog/indieauth/token">
+<link rel="subscribe" href="https://micro.blog/users/follow">
+<link rel="webmention" href="https://micro.blog/webmention">
 <link rel="micropub" href="https://micro.blog/micropub">
 <link rel="microsub" href="https://micro.blog/microsub">
-<link rel="webmention" href="https://micro.blog/webmention">
-<link rel="subscribe" href="https://micro.blog/users/follow">
+
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
 
 {{ range .Site.Params.plugins_css }}
   <link rel="stylesheet" href="{{ . }}">
