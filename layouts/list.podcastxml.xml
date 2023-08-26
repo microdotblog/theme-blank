@@ -11,7 +11,7 @@
 			<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
 		</itunes:category>
 		<itunes:author>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:author>
-		<itunes:explicit>no</itunes:explicit>
+		<itunes:explicit>false</itunes:explicit>
 		<itunes:owner>
 			<itunes:name>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:name>
 			<itunes:email>{{ .Site.Params.itunes_email | htmlEscape }}</itunes:email>
