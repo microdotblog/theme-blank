@@ -28,8 +28,6 @@
 				{{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
 				<guid isPermaLink="true">{{ .Permalink }}</guid>
 				<description>{{ .Content | html }}</description>
-				<itunes:subtitle>{{ .Content | html }}</itunes:subtitle>
-				<itunes:summary>{{ .Content | html }}</itunes:summary>
 				{{ range first 1 .Params.audio_with_metadata }}
 					{{ if gt .size 0 }}
 						<enclosure url="{{ .url }}" type="audio/mpeg" length="{{ .size }}"></enclosure>
