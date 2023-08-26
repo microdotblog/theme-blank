@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
-		<title>{{ if eq	.Title	.Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+		<title>{{ if eq .Title .Site.Title }}{{ .Site.Title | htmlEscape }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title | htmlEscape }}{{ end }}</title>
 		<link>{{ .Permalink }}</link>
-		<description>{{ .Site.Params.itunes_description }}</description>
+		<description>{{ .Site.Params.itunes_description | htmlEscape }}</description>
 		<copyright>Copyright {{ .Date.Format "2006" }} {{ .Site.Params.itunes_author | htmlEscape }}</copyright>
 		<itunes:image href="{{ .Site.Params.itunes_cover }}" />
 		<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
@@ -22,10 +22,10 @@
 		{{- $list := where .Site.Pages ".Params.audio_with_metadata" "!=" nil -}}
 		{{ range $list }}
 			<item>
-				<title>{{ .Title | html }}</title>
+				<title>{{ .Title | htmlEscape }}</title>
 				<link>{{ .Permalink }}</link>
 				<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-				{{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
+				{{ with .Site.Author.email }}<author>{{ . | htmlEscape}}{{ with $.Site.Author.name }} ({{ . | htmlEscape}}){{end}}</author>{{end}}
 				<guid isPermaLink="true">{{ .Permalink }}</guid>
 				<description><![CDATA[{{ .Content }}]]></description>
 				{{ range first 1 .Params.audio_with_metadata }}
