@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
+		<atom:link href="{{ absURL "podcast.xml" }}" rel="self" type="application/rss+xml" />
 		<title>{{ if eq .Title .Site.Title }}{{ .Site.Title | htmlEscape }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title | htmlEscape }}{{ end }}</title>
 		<link>{{ .Permalink }}</link>
 		<description>{{ .Site.Params.itunes_description | htmlEscape }}</description>
