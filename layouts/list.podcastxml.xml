@@ -1,43 +1,43 @@
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-  <channel>
-    <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
-    <link>{{ .Permalink }}</link>
-    <description>{{ .Site.Params.itunes_description }}</description>
-    <copyright>Copyright {{ .Date.Format "2006" }} {{ .Site.Params.itunes_author | htmlEscape }}</copyright>
-	<itunes:image href="{{ .Site.Params.itunes_cover }}" />
-	<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
-		<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
-	</itunes:category>
-	<itunes:author>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:author>
-	<itunes:explicit>no</itunes:explicit>		
-	<itunes:owner>
-		<itunes:name>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:name>
-		<itunes:email>{{ .Site.Params.itunes_email | htmlEscape }}</itunes:email>
-	</itunes:owner>
-    {{ with .Site.LanguageCode }}
-    <language>{{.}}</language>
-    {{ end }}
-    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
-	{{- $list := where .Site.Pages ".Params.audio_with_metadata" "!=" nil -}}
-    {{ range $list }}
-    <item>
-      <title>{{ .Title | html }}</title>
-      <link>{{ .Permalink }}</link>
-      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
-      <guid isPermaLink="true">{{ .Permalink }}</guid>
-      <description>{{ .Content | html }}</description>
-      <itunes:subtitle>{{ .Content | html }}</itunes:subtitle>
-      <itunes:summary>{{ .Content | html }}</itunes:summary>
-		{{ range first 1 .Params.audio_with_metadata }}
-      {{ if gt .size 0 }}
-			  <enclosure url="{{ .url }}" type="audio/mpeg" length="{{ .size }}"></enclosure>
-        <itunes:duration>{{ .duration_seconds }}</itunes:duration>
-      {{ else }}
-        <enclosure url="{{ .url }}" type="audio/mpeg"></enclosure>
-      {{ end }}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+	<channel>
+		<atom:link href="{{ absURL "podcast.xml" }}" rel="self" type="application/rss+xml" />
+		<title>{{ if eq .Title .Site.Title }}{{ .Site.Title | htmlEscape }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title | htmlEscape }}{{ end }}</title>
+		<link>{{ .Permalink }}</link>
+		<description>{{ .Site.Params.itunes_description | htmlEscape }}</description>
+		<copyright>Copyright {{ .Date.Format "2006" }} {{ .Site.Params.itunes_author | htmlEscape }}</copyright>
+		<itunes:image href="{{ .Site.Params.itunes_cover }}" />
+		<itunes:category text="{{ .Site.Params.itunes_category | htmlEscape }}">
+			<itunes:category text="{{ .Site.Params.itunes_subcategory | htmlEscape }}"></itunes:category>
+		</itunes:category>
+		<itunes:author>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:author>
+		<itunes:explicit>false</itunes:explicit>
+		<itunes:owner>
+			<itunes:name>{{ .Site.Params.itunes_author | htmlEscape }}</itunes:name>
+			<itunes:email>{{ .Site.Params.itunes_email | htmlEscape }}</itunes:email>
+		</itunes:owner>
+		{{ with .Site.LanguageCode }}
+			<language>{{.}}</language>
 		{{ end }}
-    </item>
-    {{ end }}
-  </channel>
+		<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+		{{- $list := where .Site.Pages ".Params.audio_with_metadata" "!=" nil -}}
+		{{ range $list }}
+			<item>
+				<title>{{ .Title | htmlEscape }}</title>
+				<link>{{ .Permalink }}</link>
+				<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+				{{ with .Site.Author.email }}<author>{{ . | htmlEscape}}{{ with $.Site.Author.name }} ({{ . | htmlEscape}}){{end}}</author>{{end}}
+				<guid isPermaLink="true">{{ .Permalink }}</guid>
+				<description><![CDATA[{{ .Content }}]]></description>
+				{{ range first 1 .Params.audio_with_metadata }}
+					{{ if gt .size 0 }}
+						<enclosure url="{{ .url }}" type="audio/mpeg" length="{{ .size }}"></enclosure>
+						<itunes:duration>{{ .duration_seconds }}</itunes:duration>
+					{{ else }}
+						<enclosure url="{{ .url }}" type="audio/mpeg"></enclosure>
+					{{ end }}
+				{{ end }}
+			</item>
+		{{ end }}
+	</channel>
 </rss>
