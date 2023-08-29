@@ -1,0 +1,26 @@
+<meta name="twitter:card" content="summary">
+
+{{ with .Title }}
+  <meta name="twitter:title" content="{{ . }}">
+  <meta property="og:title" content="{{ . }}">
+{{ else }}
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ .Site.Title }}">
+{{ end }}
+
+{{ if .IsHome }}
+  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 200 }}">
+  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 200 }}">
+  <meta name="description" content="{{ .Site.Params.itunes_description }}">
+  <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
+  <meta property="og:image" content="{{ .Site.Author.avatar }}">
+{{ else }}
+  <meta name="twitter:description" content="{{ .Summary | truncate 200 }}">
+  <meta name="og:description" content="{{ .Summary | truncate 200 }}">
+  <meta name="description" content="{{ .Summary }}">
+{{ end }}
+
+{{ range .Params.photos }}
+  <meta name="twitter:image" content="{{ . }}">
+  <meta property="og:image" content="{{ . }}">
+{{ end }}
