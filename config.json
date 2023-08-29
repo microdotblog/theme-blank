@@ -94,6 +94,9 @@
 		"theme_seconds": "0",
 		"plugins_css": [],
 		"plugins_js": [],
-		"plugins_html": []
+		"plugins_html": [],
+		"feeds": {
+			"bookmarks_json": "[FEEDS_BOOKMARKS_JSON]"
+		}		
 	}
 }
