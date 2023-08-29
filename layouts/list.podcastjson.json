@@ -16,7 +16,7 @@
 		]
 	},
 	"items": [
-		{{- $list := where .Site.Pages ".Params.audio" "!=" nil -}}
+		{{- $list := where .Site.Pages ".Params.audio_with_metadata" "!=" nil -}}
 		{{- $len := (len $list) -}}
 		{{ range $index, $value := $list }}
 			{
@@ -39,7 +39,7 @@
 				,
 				"tags": {{ . | jsonify }}
 				{{- end -}}
-				{{- range first 1 .Params.audio -}},
+				{{- range first 1 .Params.audio_with_metadata -}},
 				"attachments": [
 					{
 						"url": "{{ . }}",
