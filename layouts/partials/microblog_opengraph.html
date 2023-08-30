@@ -1,26 +1,53 @@
-<meta name="twitter:card" content="summary">
+	{{ with .Title }}
+	<meta name="twitter:title" content="{{ . }}">
+	<meta property="og:title" content="{{ . }}">
+	{{ else }}
+	<meta name="twitter:title" content="{{ .Site.Title }}">
+	<meta property="og:title" content="{{ .Site.Title }}">
+	{{ end }}
 
-{{ with .Title }}
-  <meta name="twitter:title" content="{{ . }}">
-  <meta property="og:title" content="{{ . }}">
-{{ else }}
-  <meta name="twitter:title" content="{{ .Site.Title }}">
-  <meta property="og:title" content="{{ .Site.Title }}">
-{{ end }}
+	{{ if .IsHome }}
+	<meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
+	<meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
+	<meta name="description" content="{{ .Site.Params.itunes_description }}">
+	{{ else }}
+	<meta name="twitter:description" content="{{ .Summary}}">
+	<meta name="og:description" content="{{ .Summary}}">
+	<meta name="description" content="{{ .Summary }}">
+	{{ end }}
 
-{{ if .IsHome }}
-  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 200 }}">
-  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 200 }}">
-  <meta name="description" content="{{ .Site.Params.itunes_description }}">
-  <meta name="twitter:image" content="{{ .Site.Author.avatar }}">
-  <meta property="og:image" content="{{ .Site.Author.avatar }}">
-{{ else }}
-  <meta name="twitter:description" content="{{ .Summary | truncate 200 }}">
-  <meta name="og:description" content="{{ .Summary | truncate 200 }}">
-  <meta name="description" content="{{ .Summary }}">
-{{ end }}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+	<meta property="og:url" content="{{ .Permalink }}" />
 
-{{ range .Params.photos }}
-  <meta name="twitter:image" content="{{ . }}">
-  <meta property="og:image" content="{{ . }}">
-{{ end }}
+	{{- with $.Params.images -}}
+	{{- range first 6 . }}
+	<meta property="og:image" content="{{ . | absURL }}" />{{ end -}}
+	<meta name="twitter:image" content="{{ index . 0 | absURL }}" />
+	{{- else -}}
+	<meta property="og:image" content="{{ .Site.Author.avatar }}" />
+	<meta name="twitter:image" content="{{ .Site.Author.avatar }}" />
+	{{- end -}}
+
+	{{- if .IsPage }}
+	{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+	<meta property="article:section" content="{{ .Section }}" />
+	{{ with .PublishDate }}
+	<meta property="article:published_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+	{{ with .Lastmod }}
+	<meta property="article:modified_time" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+	{{- end -}}
+
+	{{- with .Params.audio }}
+	<meta property="og:audio" content="{{ . }}" />{{ end }}
+	{{- with .Params.locale }}
+	<meta property="og:locale" content="{{ . }}" />{{ end }}
+	{{- with .Site.Params.title }}
+	<meta property="og:site_name" content="{{ . }}" />{{ end }}
+	{{- with .Params.videos }}{{- range . }}
+	<meta property="og:video" content="{{ . | absURL }}" />
+	{{ end }}{{ end }}
+
+	{{ with .Site.Params.twitter_username }}
+	<meta name="twitter:site" content="@{{ . }}" />
+	{{ end }}
