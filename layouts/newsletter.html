@@ -38,7 +38,7 @@
 		{{ .Content }}
 
 		<p>
-		{{ if gt (len .Params.audio_with_metadata) 0 }}
+		{{ if gt (len .Params.audio) 0 }}
 			<a href="{ .Permalink }">Audio</a>
 		{{ end }}
 
