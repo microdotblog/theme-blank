@@ -3,7 +3,11 @@
     "author": {
     	"name": "[FULL_NAME]",
     	"avatar": "https://micro.blog/[USERNAME]/avatar.jpg",
-    	"username": "[USERNAME]"
+    	"username": "[USERNAME]",
+	"activitypub": {
+		"username": "[ACTIVITYPUB_USERNAME]",
+		"url": "[ACTIVITYPUB_ACTOR]"
+	}
     },
     "baseURL": "[SCHEME]://[HOSTNAME]/",
 	"mediaTypes": {
