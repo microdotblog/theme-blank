@@ -47,7 +47,3 @@
 	{{- with .Params.videos }}{{- range . }}
 	<meta property="og:video" content="{{ . | absURL }}" />
 	{{ end }}{{ end }}
-
-	{{ with .Site.Params.twitter_username }}
-	<meta name="twitter:site" content="@{{ . }}" />
-	{{ end }}
