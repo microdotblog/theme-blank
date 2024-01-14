@@ -1,0 +1,9 @@
+{{ if eq .Kind "home" }}
+  {{ if .Params.bluesky }}
+    <a class="u-syndication" {{ printf "href=%q" .Params.bluesky.url | safeHTMLAttr }} style="display: none;">Also on Bluesky</a>
+  {{ end }}
+{{ else }}
+  {{ if .Params.bluesky }}
+    <! -- <a class="u-syndication" {{ printf "href=%q" .Params.bluesky.url | safeHTMLAttr }}>Reply on Bluesky</a> -->
+  {{ end }}
+{{ end }}
