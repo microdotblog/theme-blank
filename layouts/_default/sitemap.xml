@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+{{ "<" | safeHTML }}?xml version="1.0" encoding="UTF-8"{{ "?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	{{ $list := (where .Site.Pages "Type" "post") }}
 	{{- $list := $list | union (where .Site.Pages ".Params.menu" "main") -}}
