@@ -42,7 +42,7 @@
 				{{- range first 1 .Params.audio_with_metadata -}},
 				"attachments": [
 					{
-						"url": "{{ . }}",
+						"url": "{{ .url }}",
 						"mime_type": "audio/mpeg"
 					}
 				]
