@@ -40,11 +40,11 @@
 
 		<p>
 		{{ if gt (len .Params.audio) 0 }}
-			<a href="{ .Permalink }">Audio</a>
+			<a href="{{ .Permalink }}">Audio</a>
 		{{ end }}
 
 		{{ if gt (len .Params.video) 0 }}
-			<a href="{ .Permalink }">Video</a>
+			<a href="{{ .Permalink }}">Video</a>
 		{{ end }}
 
 		<a href="{{ .Permalink }}" class="microblog_permalink">{{ .Date.Format "2006-01-02" }}</a>
