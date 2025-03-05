@@ -79,6 +79,7 @@
 	},
 	"enableRobotsTXT": true,
 	"languageCode": "[LANGUAGE]",
+	"defaultContentLanguage": "[LANGUAGE]",
 	"paginate": 25,
 	"pluralizeListTitles": false,
 	"params": {
