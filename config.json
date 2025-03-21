@@ -2,7 +2,7 @@
     "title": "[TITLE]",
     "author": {
     	"name": "[FULL_NAME]",
-    	"avatar": "https://micro.blog/[USERNAME]/avatar.jpg",
+    	"avatar": "[AVATAR_URL]",
     	"username": "[USERNAME]",
 	"activitypub": {
 		"username": "[ACTIVITYPUB_USERNAME]",
