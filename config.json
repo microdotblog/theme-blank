@@ -4,10 +4,10 @@
     	"name": "[FULL_NAME]",
     	"avatar": "[AVATAR_URL]",
     	"username": "[USERNAME]",
-	"activitypub": {
-		"username": "[ACTIVITYPUB_USERNAME]",
-		"url": "[ACTIVITYPUB_ACTOR]"
-	}
+		"activitypub": {
+			"username": "[ACTIVITYPUB_USERNAME]",
+			"url": "[ACTIVITYPUB_ACTOR]"
+		}
     },
     "baseURL": "[SCHEME]://[HOSTNAME]/",
 	"mediaTypes": {
@@ -83,6 +83,15 @@
 	"paginate": 25,
 	"pluralizeListTitles": false,
 	"params": {
+	    "author": {
+	    	"name": "[FULL_NAME]",
+	    	"avatar": "[AVATAR_URL]",
+	    	"username": "[USERNAME]",
+			"activitypub": {
+				"username": "[ACTIVITYPUB_USERNAME]",
+				"url": "[ACTIVITYPUB_ACTOR]"
+			}
+	    },
 		"description": "Follow <a href=\"https://micro.blog/[USERNAME]\">@[USERNAME] on Micro.blog</a>.",
 		"about_me": "[ITUNES_DESCRIPTION]",
 		"itunes_description": "[ITUNES_DESCRIPTION]",
