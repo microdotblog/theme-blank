@@ -12,7 +12,7 @@
   <link rel="alternate" href="{{ "podcast.json" | absURL }}" type="application/json" title="Podcast">
 {{ end }}
 
-<link rel="me" href="https://micro.blog/{{ .Site.Author.username }}">
+<link rel="me" href="https://micro.blog/{{ .Site.Params.author.username }}">
 
 {{ with .Site.Params.twitter_username }}
   <link rel="me" href="https://twitter.com/{{ . }}">
@@ -26,7 +26,7 @@
   <link rel="me" href="https://instagram.com/{{ . }}">
 {{ end }}
 
-<link rel="shortcut icon" href="https://micro.blog/{{ .Site.Author.username }}/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="https://micro.blog/{{ .Site.Params.author.username }}/favicon.png" type="image/x-icon">
 <link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}">
 <link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth">
 <link rel="token_endpoint" href="https://micro.blog/indieauth/token">
