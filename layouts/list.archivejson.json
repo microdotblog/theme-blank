@@ -3,7 +3,7 @@
 	"title": {{ .Site.Title | jsonify }},
 	"icon": "{{ .Site.Author.avatar }}",
 	"home_page_url": "{{ .Site.BaseURL }}",
-	"feed_url": "{{ .Site.BaseURL }}photos/index.json",
+	"feed_url": "{{ .Site.BaseURL }}archive/index.json",
 	"items": [
 		{{- $list := (where .Site.Pages "Type" "post") -}}
 		{{- $len := (len $list) -}}
