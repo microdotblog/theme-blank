@@ -28,11 +28,25 @@
 			"isPlainText": true,
 			"notAlternative": true
 		},
+		"ArchiveHTML": {
+			"mediaType": "text/html",
+			"path": "archive",
+			"baseName": "index",
+			"isHTML": true,
+			"notAlternative": true
+		},
 		"ArchiveJSON": {
 			"mediaType": "application/json",
 			"path": "archive",
 			"baseName": "index",
 			"isPlainText": true,
+			"notAlternative": true
+		},
+		"PhotosHTML": {
+			"mediaType": "text/html",
+			"path": "photos",
+			"baseName": "index",
+			"isHTML": true,
 			"notAlternative": true
 		},
 		"PhotosJSON": {
