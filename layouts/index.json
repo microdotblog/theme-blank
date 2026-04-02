@@ -1,7 +1,7 @@
 {
 	"version": "https://jsonfeed.org/version/1",
 	"title": {{ .Site.Title | jsonify }},
-	"icon": "{{ .Site.Author.avatar }}",
+	"icon": "{{ .Site.Params.author.avatar }}",
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"feed_url": "{{ .Site.BaseURL }}feed.json",
 	"items": [
@@ -22,7 +22,7 @@
 				{{- $s := replace $s "\\u003e" ">" -}}
 				{{- $s := replace $s "\\u0026" "&" }}
 				"content_html": {{ $s }},
-				{{ if .Params.custom_summary }}"summary": {{ .Summary | plainify | jsonify }},{{ end }}
+				{{ if .Params.custom_summary }}"summary": {{ .Summary | plainify | htmlUnescape | jsonify }},{{ end }}
 				"date_published": "{{ .Date.Format "2006-01-02T15:04:05-07:00" }}",
 				"url": "{{ .Permalink }}"
 				{{- with .Params.categories -}}
