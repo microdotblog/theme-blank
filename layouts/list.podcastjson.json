@@ -1,7 +1,7 @@
 {
 	"version": "https://jsonfeed.org/version/1",
 	"title": {{ .Site.Title | jsonify }},
-	"icon": "{{ .Site.Author.avatar }}",
+	"icon": "{{ .Site.Params.author.avatar }}",
 	"home_page_url": "{{ .Site.BaseURL }}",
 	"feed_url": "{{ .Site.BaseURL }}podcast.json",
 	"_podcast": {
