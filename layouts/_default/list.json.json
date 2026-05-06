@@ -1,7 +1,7 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "title": {{ if eq  .Title  .Site.Title }}{{ .Site.Title | jsonify }}{{ else }}{{ printf `%s on %s` .Title .Site.Title | jsonify }}{{ end }},
-  "icon": "{{ .Site.Author.avatar }}",
+  "icon": "{{ .Site.Params.author.avatar }}",
   "home_page_url": "{{ .Site.BaseURL }}",
   "feed_url": "{{ .Site.BaseURL }}feed.json",
   "items": [
