@@ -35,6 +35,16 @@
 <link rel="micropub" href="https://micro.blog/micropub">
 <link rel="microsub" href="https://micro.blog/microsub">
 
+{{ with .Site.Params.bluesky_publication }}
+  <link rel="site.standard.publication" href="{{ . }}">
+{{ end }}
+
+{{ with .Params.bluesky }}
+  {{ if and $.Site.Params.bluesky_publication .document }}
+    <link rel="site.standard.document" href="{{ .document }}">
+  {{ end }}
+{{ end }}
+
 <link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
 
 {{ range .Site.Params.plugins_css }}
