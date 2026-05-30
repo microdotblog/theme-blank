@@ -36,12 +36,12 @@
 <link rel="microsub" href="https://micro.blog/microsub">
 
 {{ with .Site.Params.bluesky_publication }}
-  <link rel="site.standard.publication" href="{{ . }}">
+  <link rel="site.standard.publication" href="{{ . | safeURL }}">
 {{ end }}
 
 {{ with .Params.bluesky }}
   {{ if and $.Site.Params.bluesky_publication .document }}
-    <link rel="site.standard.document" href="{{ .document }}">
+    <link rel="site.standard.document" href="{{ .document | safeURL }}">
   {{ end }}
 {{ end }}
 
