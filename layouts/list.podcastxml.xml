@@ -37,6 +37,11 @@
 						<enclosure url="{{ .url }}" type="audio/mpeg"></enclosure>
 					{{ end }}
 				{{ end }}
+				{{ with .Params.podcast_video }}
+					<podcast:alternateEnclosure type="application/vnd.apple.mpegurl" height="{{ .height }}"{{ with $.Site.LanguageCode }} lang="{{.}}"{{ end }} title="HD Video Stream" rel="alternate">
+						<podcast:source uri="{{ .url }}" />
+					</podcast:alternateEnclosure>
+				{{ end }}
 			</item>
 		{{ end }}
 	</channel>
